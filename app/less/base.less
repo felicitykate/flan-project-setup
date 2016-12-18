@@ -130,17 +130,13 @@ form {
 	}
 
 	#submit_button {
+		.gradient(@gradient-light; @gradient-dark; 10s);
+
 		width: 100%;
 		margin-top: 10px;
 		cursor: pointer;
-		animation-name: submit_button;
-		animation-duration: 10s;
-		animation-iteration-count: infinite;
 		color: @white;
 		border: 0;
-		background: linear-gradient(270deg, @gradient-light, @gradient-dark);
-		background-size: 200% 200%;
-		animation-fill-mode: forwards;
 		touch-action: manipulation;
 	}
 }
