@@ -1,6 +1,0 @@
-Setup project for all further projects.
-
-Clone or copy the whole projects contents and:
-- rename project
-- update package.json with new project name
-- update codename.txt with a desciption of the project for flan's eyes only

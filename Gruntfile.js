@@ -34,7 +34,7 @@ module.exports = function (grunt) {
 				options: {livereload: '<%= connect.options.livereload %>'}
 			},
 			html: {
-				files: ["app/{,*/}*.html"],
+				files: ["app/**/*.html"],
 				tasks: ["htmlmin", 'copy:dist'],
 				options: {
 					spawn: true,
@@ -101,7 +101,7 @@ module.exports = function (grunt) {
 				files: [{
 					dot: true,
 					src: [
-						'dist/{,*/}*',
+						'dist/**/*',
 						'!dist/.git*'
 					]
 				}]
@@ -162,9 +162,9 @@ module.exports = function (grunt) {
 			},
 			app: {
 				expand: true,
-				cwd: "app/less",
-				src: ['/*.less'],
-				dest: "app/less"
+				cwd: "app/less/",
+				src: ['*.less'],
+				dest: "app/less/"
 			}
 		},
 
@@ -172,9 +172,9 @@ module.exports = function (grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'app/images',
-					src: '{,*/}*.{png,jpg,jpeg,gif}',
-					dest: 'dist/images'
+					cwd: 'app/',
+					src: '**/*.{png,jpg,jpeg,gif}',
+					dest: 'dist/'
 				}]
 			}
 		},
@@ -183,9 +183,9 @@ module.exports = function (grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'app/images',
+					cwd: 'app/',
 					src: '{,*/}*.svg',
-					dest: 'dist/images'
+					dest: 'dist/'
 				}]
 			}
 		},
@@ -201,8 +201,8 @@ module.exports = function (grunt) {
 				},
 				files: [{
 					expand: true,
-					cwd: 'dist',
-					src: ['*.html', 'components/{,*/}*.html'],
+					cwd: 'app',
+					src: ['*.html', '**/*.html'],
 					dest: 'dist'
 				}]
 			}
@@ -217,12 +217,12 @@ module.exports = function (grunt) {
 					cwd: 'app',
 					dest: 'dist',
 					src: [
-						'*.{ico,png,txt}',
+						'**/*.{ico,png,txt}',
 						'.htaccess',
 						'*.html',
 						'components/{,*/}*.html',
 						'images/{,*/}*.{webp}',
-						'styles/fonts/*',
+						'fonts/*',
 						'images/*'
 					]
 				}]
@@ -324,7 +324,7 @@ module.exports = function (grunt) {
 		grunt.task.run([ 'build', 'connect:livereload', 'watch' ]);
 	});
 
-	grunt.registerTask('build', [ 'clean:dist', 'autoprefixer', 'concat', 'copy:dist', 'csscomb:app', 'less', 'cssmin', 'uglify', 'htmlmin' ]);
+	grunt.registerTask('build', [ 'clean:dist', 'autoprefixer', 'concat', 'copy:dist', 'csscomb:app', 'less', 'cssmin', 'uglify', 'htmlmin', 'imagemin:dist', 'svgmin:dist' ]);
 
 	grunt.registerTask('test', [ 'karma:unit', 'connect:test', 'accessibility:test', 'galen:test' ]);
 

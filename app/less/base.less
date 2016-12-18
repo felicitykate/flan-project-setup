@@ -1,0 +1,185 @@
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 10px 10px 0;
+	text-align: center;
+	color: @font-color;
+	background-color: @body-color;
+	font-family: @font-family;
+}
+
+h1 {
+	letter-spacing: 2.2px;
+	color: @heading-color;
+	font-size: 41px;
+}
+
+h2 {
+	font-size: 45px;
+}
+
+h3 {
+	font-size: 25px;
+}
+
+p {
+	font-size: 18px;
+}
+
+a {
+	text-decoration: none;
+	font-size: 16px;
+	line-height: 16px;
+
+	&:hover {
+		text-decoration: none;
+		border-bottom: 1px solid;
+	}
+
+	&:visited {
+		color: @font-color;
+	}
+}
+
+nav {
+	display: flex;
+	justify-content: center;
+}
+
+header {
+	height: 30px;
+
+	.languages {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			display: inline;
+		}
+	}
+}
+
+main {
+	position: relative;
+	height: auto;
+	min-height: ~"calc(100% - 80px)";
+}
+
+footer {
+	position: relative;
+	height: 30px;
+}
+
+.section-one {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.phone {
+		right: 0;
+		left: 0;
+		max-height: 550px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.cta {
+		margin-top: 70px;
+		color: @secondary-color;
+	}
+
+	.logo {
+		width: 110px;
+		height: 110px;
+	}
+
+	.container-one,
+	.container-two {
+		max-width: 500px;
+		margin-bottom: 40px;
+	}
+
+	.container-one {
+		margin-top: 20px;
+	}
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	input {
+		max-width: 300px;
+		height: 45px;
+		padding: 0;
+		border: 1px solid;
+		border-radius: 4px;
+		font-size: 17px;
+		font-weight: 400;
+	}
+
+	input.field {
+		height: 43px;
+		padding: 0 10px;
+	}
+
+	#submit_button {
+		.gradient(@gradient-light; @gradient-dark; 10s);
+
+		width: 100%;
+		margin-top: 10px;
+		cursor: pointer;
+		color: @white;
+		border: 0;
+		touch-action: manipulation;
+	}
+}
+
+@media (min-width: 768px) {
+	.section-one {
+		flex-direction: row;
+		justify-content: center;
+
+		.phone {
+			max-height: 600px;
+		}
+
+		.container-one,
+		.container-two {
+			width: 500px;
+			margin: 10px 0;
+			padding: 0 20px;
+		}
+
+		.container-one {
+			order: 2;
+		}
+
+		.container-two {
+			order: 1;
+		}
+	}
+
+	form {
+		flex-direction: row;
+
+		.field {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
+		#submit_button {
+			min-width: 150px;
+			margin: 0;
+			border: 0;
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+}
