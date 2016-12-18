@@ -162,9 +162,9 @@ module.exports = function (grunt) {
 			},
 			app: {
 				expand: true,
-				cwd: "app/less",
-				src: ['/*.less'],
-				dest: "app/less"
+				cwd: "app/less/",
+				src: ['*.less'],
+				dest: "app/less/"
 			}
 		},
 
@@ -172,9 +172,9 @@ module.exports = function (grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'app/images',
-					src: '{,*/}*.{png,jpg,jpeg,gif}',
-					dest: 'dist/images'
+					cwd: 'app/',
+					src: '**/*.{png,jpg,jpeg,gif}',
+					dest: 'dist/'
 				}]
 			}
 		},
@@ -324,7 +324,7 @@ module.exports = function (grunt) {
 		grunt.task.run([ 'build', 'connect:livereload', 'watch' ]);
 	});
 
-	grunt.registerTask('build', [ 'clean:dist', 'autoprefixer', 'concat', 'copy:dist', 'csscomb:app', 'less', 'cssmin', 'uglify', 'htmlmin' ]);
+	grunt.registerTask('build', [ 'clean:dist', 'autoprefixer', 'concat', 'copy:dist', 'csscomb:app', 'less', 'cssmin', 'uglify', 'htmlmin', 'imagemin:dist', 'svgmin:dist' ]);
 
 	grunt.registerTask('test', [ 'karma:unit', 'connect:test', 'accessibility:test', 'galen:test' ]);
 
