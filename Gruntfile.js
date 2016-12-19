@@ -231,7 +231,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					dot: true,
-					cwd: '/',
+					cwd: './',
 					dest: 'dist',
 					src: [
 						'README.md'
