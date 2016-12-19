@@ -227,6 +227,17 @@ module.exports = function (grunt) {
 					]
 				}]
 			},
+			extras: {
+				files: [{
+					expand: true,
+					dot: true,
+					cwd: '/',
+					dest: 'dist',
+					src: [
+						'README.md'
+					]
+				}]
+			},
 			firebase: {
 				files: [{
 					expand: true,
@@ -324,7 +335,7 @@ module.exports = function (grunt) {
 		grunt.task.run([ 'build', 'connect:livereload', 'watch' ]);
 	});
 
-	grunt.registerTask('build', [ 'clean:dist', 'autoprefixer', 'concat', 'copy:dist', 'csscomb:app', 'less', 'cssmin', 'uglify', 'htmlmin', 'imagemin:dist', 'svgmin:dist' ]);
+	grunt.registerTask('build', [ 'clean:dist', 'autoprefixer', 'concat', 'copy:dist', 'copy:extras', 'csscomb:app', 'less', 'cssmin', 'uglify', 'htmlmin', 'imagemin:dist', 'svgmin:dist' ]);
 
 	grunt.registerTask('test', [ 'karma:unit', 'connect:test', 'accessibility:test', 'galen:test' ]);
 

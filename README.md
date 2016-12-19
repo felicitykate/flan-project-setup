@@ -16,7 +16,7 @@
 
 ```
 
-
+Preview at https://felicitykate.github.io/mongbang/
 
 * Make sure you have node, npm and java 1.8.
 * Run npm install to install the necessary node modules
