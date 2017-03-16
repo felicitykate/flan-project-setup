@@ -1,6 +1,31 @@
 {
-  "name": "flan-project2",
+  "name": "flan-project-setup",
   "version": "0.0.1",
+  "homepage": "https://www.flanstudios.com",
+  "description": "FlanStudios projext setup",
+  "main": "Gruntfile.js",
+  "author": {
+    "name": "Felicity White",
+    "email": "flick@flanstudios.com",
+    "url": "https://www.flanstudios.com/felicitywhite"
+  },
+  "engines": {
+    "node": "^6.3.1",
+    "npm": "^3.10.5"
+  },
+  "scripts": {
+    "build": "grunt build",
+    "start": "grunt start",
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://flicknyfe@bitbucket.org/flicknyfe/flan-project-setup.git"
+  },
+  "bugs": {
+    "url": "https://bitbucket.org/flanstudios/flan-project-setup/issues"
+  },
+  "private": true,
   "dependencies": {},
   "devDependencies": {
     "chromedriver": "^2.26.0",
