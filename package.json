@@ -1,8 +1,8 @@
 {
-  "name": "flan-project-setup",
+  "name": "flan-website",
   "version": "0.0.1",
   "homepage": "https://www.flanstudios.com",
-  "description": "FlanStudios projext setup",
+  "description": "FlanStudios website",
   "main": "Gruntfile.js",
   "author": {
     "name": "Felicity White",
@@ -20,10 +20,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://flicknyfe@bitbucket.org/flicknyfe/flan-project-setup.git"
+    "url": "git@bitbucket.org:flanstudios/flan-website.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/flanstudios/flan-project-setup/issues"
+    "url": "https://bitbucket.org/flanstudios/flan-website/issues"
   },
   "private": true,
   "dependencies": {},

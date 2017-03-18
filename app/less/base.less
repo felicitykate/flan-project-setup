@@ -1,29 +1,36 @@
 html {
-	height: 100%;
+	box-sizing: border-box!important;
 }
 
 body {
+	box-sizing: border-box!important;
+	max-width: 1280px;
 	height: 100%;
+	min-height: 100vh;
 	margin: 0;
+	margin-right: auto;
+	margin-left: auto;
 	padding: 10px 10px 0;
-	text-align: center;
 	color: @font-color;
-	background-color: @body-color;
+	background: @body-color;
 	font-family: @font-family;
 }
 
 h1 {
-	letter-spacing: 2.2px;
 	color: @heading-color;
-	font-size: 41px;
+	font-size: 25px;
+	font-weight: bold;
 }
 
 h2 {
-	font-size: 45px;
-}
-
-h3 {
-	font-size: 25px;
+	padding-right: 15px;
+	padding-left: 15px;
+	text-align: center;
+	//font-size: 30px;
+	font-size: 22px;
+	font-weight: bold;
+	//line-height: 50px;
+	line-height: 30px;
 }
 
 p {
@@ -32,34 +39,41 @@ p {
 
 a {
 	text-decoration: none;
-	font-size: 16px;
-	line-height: 16px;
 
 	&:hover {
 		text-decoration: none;
-		border-bottom: 1px solid;
 	}
-
-	&:visited {
-		color: @font-color;
-	}
-}
-
-nav {
-	display: flex;
-	justify-content: center;
 }
 
 header {
-	height: 30px;
+	display: flex;
+	justify-content: space-between;
+	padding-right: 15px;
+	padding-left: 15px;
 
-	.languages {
+	ul {
+		display: flex;
+		justify-content: space-between;
+		width: 75px;
+		height: 30px;
 		margin: 0;
+		margin-top: auto;
+		margin-bottom: auto;
 		padding: 0;
 		list-style: none;
 
 		li {
-			display: inline;
+			display: inline-block;
+
+			a {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+
+				path {
+					fill: white;
+				}
+			}
 		}
 	}
 }
@@ -80,106 +94,90 @@ footer {
 	flex-direction: column;
 	align-items: center;
 
-	.phone {
+	.main-image {
 		right: 0;
 		left: 0;
-		max-height: 550px;
+		width: 300px;
+		max-width: 100%;
+		margin-top: -50px;
 		margin-right: auto;
+		margin-bottom: -50px;
 		margin-left: auto;
 	}
 
-	.cta {
-		margin-top: 70px;
-		color: @secondary-color;
-	}
-
-	.logo {
-		width: 110px;
-		height: 110px;
-	}
-
-	.container-one,
-	.container-two {
-		max-width: 500px;
-		margin-bottom: 40px;
-	}
-
 	.container-one {
-		margin-top: 20px;
+		width: 680px;
+		max-width: 100%;
+		margin-bottom: 40px;
 	}
 }
 
 form {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	max-width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 15px;
+	padding-left: 15px;
 
+	.input-group {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 10px;
+	}
+
+	.input-placeholder {
+		position: absolute;
+		bottom: 10px;
+		text-transform: uppercase;
+		pointer-events: none;
+		color: @font-placeholder-color;
+	}
+
+	.input-placeholder,
 	input {
-		max-width: 300px;
-		height: 45px;
 		padding: 0;
-		border: 1px solid;
-		border-radius: 4px;
-		font-size: 17px;
+		padding-left: 15px;
+		font-size: 20px;
 		font-weight: 400;
 	}
 
-	input.field {
-		height: 43px;
-		padding: 0 10px;
+	input {
+		height: 45px;
+		color: @white;
+		border: none;
+		border-bottom: 2px solid @white;
+		border-radius: 0;
+		background: transparent;
+		font-size: 20px;
+		font-weight: 400;
 	}
 
-	#submit_button {
-		.gradient(@gradient-light; @gradient-dark; 10s);
-
-		width: 100%;
-		margin-top: 10px;
+	#submit-button {
+		width: 200px;
+		margin-top: 15px;
+		padding: 15px;
 		cursor: pointer;
 		color: @white;
-		border: 0;
-		touch-action: manipulation;
+		border: 2px solid @white;
+		border-radius: 5px;
+		background-color: transparent;
+		font-size: 20px;
 	}
 }
 
 @media (min-width: 768px) {
-	.section-one {
-		flex-direction: row;
-		justify-content: center;
-
-		.phone {
-			max-height: 600px;
-		}
-
-		.container-one,
-		.container-two {
-			width: 500px;
-			margin: 10px 0;
-			padding: 0 20px;
-		}
-
-		.container-one {
-			order: 2;
-		}
-
-		.container-two {
-			order: 1;
-		}
+	h2 {
+		font-size: 30px;
+		line-height: 50px;
 	}
 
+	.section-one .main-image {
+		width: 540px;
+	}
 	form {
-		flex-direction: row;
-
-		.field {
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-		}
-
-		#submit_button {
-			min-width: 150px;
-			margin: 0;
-			border: 0;
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-		}
+		width: 526px;
 	}
 }
