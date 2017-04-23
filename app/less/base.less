@@ -3,6 +3,9 @@ html {
 }
 
 body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	box-sizing: border-box!important;
 	max-width: 1280px;
 	height: 100%;
@@ -23,18 +26,14 @@ h1 {
 }
 
 h2 {
+	margin: 0;
+	margin-bottom: 15px;
 	padding-right: 15px;
 	padding-left: 15px;
 	text-align: center;
-	//font-size: 30px;
 	font-size: 22px;
 	font-weight: bold;
-	//line-height: 50px;
 	line-height: 30px;
-}
-
-p {
-	font-size: 18px;
 }
 
 a {
@@ -80,13 +79,11 @@ header {
 
 main {
 	position: relative;
-	height: auto;
-	min-height: ~"calc(100% - 80px)";
+	margin-bottom: auto;
 }
 
 footer {
 	position: relative;
-	height: 30px;
 }
 
 .section-one {
@@ -105,7 +102,7 @@ footer {
 		margin-left: auto;
 	}
 
-	.container-one {
+	.container {
 		width: 680px;
 		max-width: 100%;
 		margin-bottom: 40px;
@@ -115,6 +112,8 @@ footer {
 form {
 	display: flex;
 	flex-direction: column;
+	box-sizing: border-box;
+	width: 450px;
 	max-width: 100%;
 	margin-right: auto;
 	margin-left: auto;
@@ -125,23 +124,37 @@ form {
 		position: relative;
 		display: flex;
 		flex-direction: column;
+		margin-top: 10px;
 		margin-bottom: 10px;
 	}
 
-	.input-placeholder {
+	.input-placeholder,
+	.input-placeholder-error {
 		position: absolute;
 		bottom: 10px;
+		padding: 0;
+		padding-left: 15px;
 		text-transform: uppercase;
 		pointer-events: none;
 		color: @font-placeholder-color;
-	}
-
-	.input-placeholder,
-	input {
-		padding: 0;
-		padding-left: 15px;
 		font-size: 20px;
 		font-weight: 400;
+
+		&.input-selected {
+			bottom: 45px;
+			font-size: 15px;
+		}
+	}
+
+	.input-placeholder-error {
+		right: 0;
+		color: #ff5e6d;
+		font-size: 15px;
+
+		&.hidden {
+			display: none;
+			visibility: hidden;
+		}
 	}
 
 	input {
@@ -153,12 +166,15 @@ form {
 		background: transparent;
 		font-size: 20px;
 		font-weight: 400;
+
+		&.invalid {
+			border-bottom: 2px solid #ff5e6d;
+		}
 	}
 
 	#submit-button {
 		width: 200px;
 		margin-top: 15px;
-		padding: 15px;
 		cursor: pointer;
 		color: @white;
 		border: 2px solid @white;
@@ -167,15 +183,35 @@ form {
 		font-size: 20px;
 	}
 }
+.emoji-flan {
+	font-size: 25px;
+}
 
 @media (min-width: 768px) {
+	body {
+		height: 100vh;
+		max-height: 100%;
+	}
+
+	main {
+		margin-top: auto;
+	}
+
 	h2 {
 		font-size: 30px;
 		line-height: 50px;
 	}
 
-	.section-one .main-image {
-		width: 540px;
+	.section-one {
+		flex-direction: row;
+
+		.main-image {
+			width: 540px;
+		}
+
+		.container {
+			max-width: 50%;
+		}
 	}
 	form {
 		width: 526px;

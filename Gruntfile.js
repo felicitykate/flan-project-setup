@@ -29,7 +29,7 @@ module.exports = function (grunt) {
 		// Watches files for changes and runs tasks based on the changed files
 		watch: {
 			js: {
-				files: ['app/components/**/*.js'],
+				files: ['app/scripts/**/*.js'],
 				tasks: ['newer:concat', 'uglify', 'test'],
 				options: {livereload: '<%= connect.options.livereload %>'}
 			},
@@ -73,8 +73,9 @@ module.exports = function (grunt) {
 				port: 9000,
 				// Change this to '0.0.0.0' to access the server from outside.
 				//hostname: 'localhost',
-						hostname: '192.168.0.10',
-		//				livereload: 35729
+				hostname: '0.0.0.0'
+				//hostname: '192.168.0.10',
+				//livereload: 35729
 			},
 			livereload: {
 				options: {
@@ -152,7 +153,7 @@ module.exports = function (grunt) {
 
 		concat: {
 			dist: {
-				files: {'dist/scripts.js': ['app/components/**/*.js']}
+				files: {'dist/scripts.js': ['app/scripts/**/*.js']}
 			}
 		},
 
@@ -266,7 +267,7 @@ module.exports = function (grunt) {
 				files: [
 					{
 						expand: true,
-						cwd: "app/components",
+						cwd: "app/scripts",
 						src: ['/**/*.js']
 					}
 				],
@@ -328,12 +329,11 @@ module.exports = function (grunt) {
 				}
 			},
 			local: {
-				src: ["app/index.html", "app/components/**/*.html"]
+				src: ["app/index.html", "app/pages/**/*.html"]
 			}
 		}
 
 	});
-
 
 	grunt.registerTask('start', 'Compile then start a connect web server', function (target) {
 		if (target === 'dist') {
@@ -345,7 +345,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', [ 'clean:dist', 'concat', 'copy:dist', 'copy:extras', 'csscomb:app', 'less', 'autoprefixer', 'cssmin', 'uglify', 'imagemin:dist', 'svgmin:dist', 'htmlmin' ]);
 
-	grunt.registerTask('test', [ 'karma:unit', 'connect:test', 'accessibility:test', 'galen:test' ]);
+	grunt.registerTask('test', [ /*'karma:unit', */'connect:test', 'accessibility:test', 'galen:test' ]);
 
 	grunt.registerTask('default', [ 'build' ]);
 

@@ -3,14 +3,14 @@
   "name" : "Hidden popup on tablet",
   "report" : {
     "nodes" : [ {
-      "name" : "Open http://localhost:3000",
+      "name" : "Open http://0.0.0.0:3000",
       "status" : "info",
-      "time" : 1482030533437,
+      "time" : 1489918434969,
       "type" : "node"
     }, {
       "name" : "Check layout: ./test/visual/test.spec included tags: ",
-      "status" : "info",
-      "time" : 1482030533923,
+      "status" : "error",
+      "time" : 1489918435559,
       "sections" : [ {
         "name" : "Test Section",
         "place" : {
@@ -20,21 +20,18 @@
         "objects" : [ {
           "name" : "box",
           "specs" : [ {
-            "status" : "info",
+            "status" : "error",
             "place" : {
               "filePath" : "./test/visual/test.spec",
               "lineNumber" : 6
             },
             "name" : "visible",
-            "highlight" : [ "box" ]
+            "errors" : [ "\"box\" is absent on page" ],
+            "highlight" : [ ]
           } ]
         } ]
       } ],
-      "objects" : {
-        "box" : {
-          "area" : [ 8, 126, 752, 360 ]
-        }
-      },
+      "objects" : { },
       "screenshot" : "layout-2-screenshot.png",
       "type" : "layout"
     } ]

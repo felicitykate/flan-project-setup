@@ -23,7 +23,7 @@ module.exports = function (config) {
 			// Paths to clientlibs js files
 
 			// Paths to components js files
-			"app/components/**/*.js"
+			"app/scripts/**/*.js"
 
 		],
 

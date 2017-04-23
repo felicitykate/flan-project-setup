@@ -1,5 +1,5 @@
 @objects
-	box     css   .heading
+	box     css   #header
 
 = Test Section =
 	box:
