@@ -10,6 +10,7 @@ module.exports = function (config) {
 		 */
 		libraryPaths: [
 
+				//TODO: add jquery
 
 		],
 
@@ -27,6 +28,14 @@ module.exports = function (config) {
 
 		],
 
+		// fixtures
+		mockHtmlPaths: [{
+			pattern: 'test/mocks/**/*.html',
+			watched: true,
+			served: true,
+			included: false
+		}],
+
 		//Create the coverage config for sources
 		coveragePaths: function coveragePaths() {
 			return config.commonConfig.componentJSPattern.reduce(function (previousValue, currentValue) {
@@ -43,7 +52,7 @@ module.exports = function (config) {
 
 		// frameworks to use
 		// available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-		frameworks: ['jasmine'],
+		frameworks: ['jasmine-jquery', 'jasmine'],
 
 		// list of files / patterns to load in the browser
 		files: config.commonConfig.componentJSPattern.concat(
@@ -61,7 +70,7 @@ module.exports = function (config) {
 		reporters: ['coverage', 'html', 'spec', 'junit'],
 
 		// web server port
-		port: 9876,
+		port: 1337,
 
 		// enable / disable colors in the output (reporters and logs)
 		colors: true,
@@ -139,6 +148,7 @@ module.exports = function (config) {
 
 		plugins: [
 			'karma-jasmine',
+			'karma-jasmine-jquery',
 			'karma-chrome-launcher',
 			'karma-firefox-launcher',
 			'karma-phantomjs-launcher',

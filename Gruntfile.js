@@ -41,6 +41,15 @@ module.exports = function (grunt) {
 					livereload: false
 				}
 			},
+			reports: {
+				files: [
+					"test/coverage/html/*",
+					"test/unit-tests/*"
+				],
+				options: {
+					livereload: true
+				}
+			},
 			styles: {
 				files: ['app/less/*.less'],
 				tasks: ['less', 'cssmin', 'autoprefixer'],
