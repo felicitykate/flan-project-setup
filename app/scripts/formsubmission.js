@@ -27,7 +27,7 @@ flan.submitForm = function(event) {
 		var googleForm = $(window).jqGoogleForms({"formKey": "1FAIpQLSe0ik5Dt8V1KC1lvffrT8yRthy-K2mzPIXCscAQEyS9gNiyKg"});
 
 		googleForm.sendFormData(formData);
-	};
+	}
 
 };
 
@@ -65,16 +65,12 @@ flan.validateFormInputs = function(input) {
 	$(errorElement).addClass('hidden');
 
 	if(input.value <= 0) {
-		$(input).addClass('invalid');
-		$(input).attr('aria-invalid', 'true');
-		$(errorElement).removeClass('hidden');
+		flan.applyInvalidToInput(input, errorElement);
 		return false;
 
 	} else if(input.type === 'email') {
 		if(!input.value.includes('@')) {
-			$(input).addClass('invalid');
-			$(input).attr('aria-invalid', 'true');
-			$(errorElement).removeClass('hidden');
+			flan.applyInvalidToInput(input, errorElement);
 			return false;
 
 		} else {
@@ -83,16 +79,20 @@ flan.validateFormInputs = function(input) {
 
 	} else if (input.type === 'text') {
 		if(input.value.match(/\d+/g)) {
-			$(input).addClass('invalid');
-			$(input).attr('aria-invalid', 'true');
-			$(errorElement).removeClass('hidden');
+			flan.applyInvalidToInput(input, errorElement);
 			return false;
 
 		} else {
 			return true;
 		}
 
-	};
+	}
+};
+
+flan.applyInvalidToInput = function(input, errorElement) {
+	$(input).addClass('invalid');
+	$(input).attr('aria-invalid', 'true');
+	$(errorElement).removeClass('hidden');
 };
 
 flan.addFormLabelAnimation = function(input) {
