@@ -104,6 +104,27 @@ module.exports = function (grunt) {
 			}
 		},
 
+		'ftp-deploy': {
+			flan: {
+				auth: {
+					host: 'ftp.flanstudios.com',
+					port: 21,
+					authKey: 'key1'
+				},
+				src: './dist/',
+				dest: '/public_html/'
+			},
+			flanTest: {
+				auth: {
+					host: 'ftp.flanstudios.com',
+					port: 21,
+					authKey: 'key1'
+				},
+				src: './dist/',
+				dest: '/public_html/testEnv/'
+			}
+		},
+
 		// Empties folders to start fresh
 		clean: {
 			dist: {

@@ -2,7 +2,7 @@
   "name": "flan-project-setup",
   "version": "0.0.1",
   "homepage": "https://www.flanstudios.com",
-  "description": "FlanStudios projext setup",
+  "description": "FlanStudios project setup",
   "main": "Gruntfile.js",
   "author": {
     "name": "Felicity White",
@@ -16,7 +16,8 @@
   "scripts": {
     "build": "grunt build",
     "start": "grunt start",
-    "test": "grunt test"
+    "test": "grunt test",
+	"deploy": "grunt deploy:flanTest"
   },
   "repository": {
     "type": "git",
@@ -46,7 +47,7 @@
     "grunt-contrib-uglify": "~0.6.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-csscomb": "~3.0.0",
-    "grunt-dploy": "",
+    "grunt-ftp-deploy": "^0.1.10",
     "grunt-galenframework": "^2.3.1",
     "grunt-karma": "^0.12.2",
     "grunt-newer": "^0.7.0",
