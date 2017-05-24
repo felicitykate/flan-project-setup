@@ -9,8 +9,9 @@ module.exports = function (config) {
 		 * e.g jquery
 		 */
 		libraryPaths: [
-
-				//TODO: add jquery
+			"lib/jquery-2.1.1.min.js",
+			"lib/jquery.jqgoogleforms.min.js",
+			"lib/svgger.js"
 
 		],
 
@@ -24,7 +25,7 @@ module.exports = function (config) {
 			// Paths to clientlibs js files
 
 			// Paths to components js files
-			"app/components/**/*.js"
+			"app/scripts/**/*.js"
 
 		],
 
@@ -55,7 +56,8 @@ module.exports = function (config) {
 		frameworks: ['jasmine-jquery', 'jasmine'],
 
 		// list of files / patterns to load in the browser
-		files: config.commonConfig.componentJSPattern.concat(
+		files: config.commonConfig.libraryPaths.concat(
+			config.commonConfig.componentJSPattern,
 			config.commonConfig.testPaths),
 
 		// Paths to clientlibs js files to exclude
