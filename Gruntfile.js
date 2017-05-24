@@ -283,30 +283,6 @@ module.exports = function (grunt) {
 			}
 		},
 
-		galen: {
-			test: {
-				src: ['test/**/*.test.js'],
-				options: {
-					output: true,
-					url: 'http://<%= connect.options.hostname %>:<%= connect.test.options.port %>',
-					htmlReport: true,
-					htmlReportDest: 'test/reports/visual',
-					devices: {
-						desktop: {
-							deviceName: 'desktop',
-							browser: 'chrome',
-							size: '1280x800'
-						},
-						tablet: {
-							deviceName: 'tablet',
-							browser: 'chrome',
-							size: '768x576'
-						}
-					}
-				}
-			}
-		},
-
 		accessibility: {
 			options: {
 				force: true,
@@ -345,7 +321,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', [ 'clean:dist', 'concat', 'copy:dist', 'copy:extras', 'csscomb:app', 'less', 'autoprefixer', 'cssmin', 'uglify', 'imagemin:dist', 'svgmin:dist', 'htmlmin' ]);
 
-	grunt.registerTask('test', [ /*'karma:unit', */'connect:test', 'accessibility:test', 'galen:test' ]);
+	grunt.registerTask('test', [ 'karma:unit', 'connect:test', 'accessibility:test' ]);
 
 	grunt.registerTask('default', [ 'build' ]);
 

@@ -1,6 +1,6 @@
 var flan = flan || {};
 
-$(document).ready(function () {
+flan.bindEvents = function() {
 	$('#flan-website-form #submit-button').on('click', function(e){
 		e.preventDefault();
 
@@ -18,7 +18,7 @@ $(document).ready(function () {
 	$('#flan-website-form input').on('blur', function(e) {
 		flan.removeFormLabelAnimation(e.currentTarget);
 	});
-});
+};
 
 flan.submitForm = function(event) {
 	var formData = flan.getFormInputs(event.currentTarget.form);
@@ -109,13 +109,6 @@ flan.removeFormLabelAnimation = function(input) {
 	}
 };
 
-
-
-
-
-
-
-
-
-
-
+(function () {
+	flan.bindEvents();
+})();
