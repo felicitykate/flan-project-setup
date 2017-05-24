@@ -1,0 +1,21 @@
+.gradient(@color1: @gradient-light; @color2: @gradient-dark; @time: 10s) {
+
+	animation-name: gradient;
+	animation-duration: @time;
+	animation-iteration-count: infinite;
+	background: linear-gradient(270deg, @color1, @color2);
+	background-size: 200% 200%;
+	animation-fill-mode: forwards;
+
+
+	@keyframes gradient {
+		0%, 100% {
+			background-position: 0% 50%;
+		}
+	}
+	@keyframes gradient {
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+}

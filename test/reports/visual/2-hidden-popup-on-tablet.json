@@ -1,0 +1,39 @@
+{
+  "testId" : "2-hidden-popup-on-tablet",
+  "name" : "Hidden popup on tablet",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Open http://0.0.0.0:3000",
+      "status" : "info",
+      "time" : 1489918434969,
+      "type" : "node"
+    }, {
+      "name" : "Check layout: ./test/visual/test.spec included tags: ",
+      "status" : "error",
+      "time" : 1489918435559,
+      "sections" : [ {
+        "name" : "Test Section",
+        "place" : {
+          "filePath" : "./test/visual/test.spec",
+          "lineNumber" : 4
+        },
+        "objects" : [ {
+          "name" : "box",
+          "specs" : [ {
+            "status" : "error",
+            "place" : {
+              "filePath" : "./test/visual/test.spec",
+              "lineNumber" : 6
+            },
+            "name" : "visible",
+            "errors" : [ "\"box\" is absent on page" ],
+            "highlight" : [ ]
+          } ]
+        } ]
+      } ],
+      "objects" : { },
+      "screenshot" : "layout-2-screenshot.png",
+      "type" : "layout"
+    } ]
+  }
+}
